@@ -278,6 +278,9 @@ hr {
 }
 
 
+* {
+	box-sizing: border-box;
+}
 
 
 .about-page {
@@ -578,6 +581,28 @@ hr {
 .consulting-actions {
 	display: flex;
 	gap: 12px;
+	margin-top: 28px;
+}
+
+.consulting-actions a {
+	box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+	.consulting-content {
+		padding: 28px 20px;
+	}
+
+	.consulting-actions {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.consulting-actions a {
+		width: 100%;
+		min-height: 46px;
+		padding: 0 16px;
+	}
 }
 
 .primary-button,
