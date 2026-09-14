@@ -132,10 +132,13 @@ const skillGroups = [
 		</section>
 
       <!-- PROJECTS -->
-      <section>
-        <h2>Latest Projects</h2>
-
-        <div class="projects">
+      <section class="projects-section">
+        <div class="section-header">
+			<div>
+				<p class="section-label">PROJECTS</p>
+				<h2>Featured projects</h2>
+			</div>
+		</div>
 
           <article>
             <h3>Secure Software Supply Chain</h3>
@@ -175,66 +178,118 @@ const skillGroups = [
               Azure · AWS · Terraform · CI/CD
             </small>
           </article>
-
-        </div>
       </section>
+	  <section class="blog-section">
+			<div class="blog-section-header">
+				<div>
+					<p class="section-label">FROM THE BLOG</p>
+					<h2>Latest article</h2>
+				</div>
+
+				<a class="view-all" href="/blog/">
+					View all posts →
+				</a>
+			</div>
+
+			<a
+				class="featured-post"
+				href="/blog/reducing-container-attack-surface-with-docker-hardened-images/"
+			>
+				<div class="featured-post-icon">
+					<Icon
+						name="simple-icons:docker"
+						width="42"
+						height="42"
+					/>
+				</div>
+
+				<div class="featured-post-content">
+
+					<div class="featured-post-meta">
+						<span>DEVSECOPS</span>
+						<span>·</span>
+						<span>CONTAINER SECURITY</span>
+					</div>
+
+					<h3>
+						Reducing Container Attack Surface
+						with Docker Hardened Images
+					</h3>
+
+					<p>
+						A practical comparison between a standard Java
+						container image and a Docker Hardened Image using
+						Trivy.
+					</p>
+
+					<div class="featured-post-details">
+						<span>Sep 14, 2026</span>
+						<span>·</span>
+						<span>5 min read</span>
+					</div>
+
+					<div class="featured-post-footer">
+						<div class="post-tags">
+							<span>Docker</span>
+							<span>Trivy</span>
+							<span>Java</span>
+						</div>
+
+						<span class="read-more">
+							Read article
+							<Icon
+								name="mdi:arrow-right"
+								width="20"
+								height="20"
+							/>
+						</span>
+					</div>
+
+				</div>
+			</a>
+		</section> 
 
 	  <!-- FREELANCE & CONSULTING -->
-<section class="consulting-section">
-	<div class="consulting-content">
-		<p class="section-label">FREELANCE & CONSULTING</p>
+		<section class="consulting-section">
+			<div class="consulting-content">
+				<p class="section-label">FREELANCE & CONSULTING</p>
 
-		<h2>Need help with DevOps, Kubernetes or cloud infrastructure?</h2>
+				<h2>Need help with DevOps, Kubernetes or cloud infrastructure?</h2>
 
-		<p>
-			I'm available for freelance projects and consulting engagements
-			focused on Kubernetes, CI/CD, DevSecOps, cloud infrastructure,
-			GitOps and observability.
-		</p>
+				<p>
+					I'm available for freelance projects and consulting engagements
+					focused on Kubernetes, CI/CD, DevSecOps, cloud infrastructure,
+					GitOps and observability.
+				</p>
 
-		<div class="consulting-services">
-			<span>Kubernetes</span>
-			<span>CI/CD</span>
-			<span>DevSecOps</span>
-			<span>GitOps</span>
-			<span>Cloud</span>
-			<span>Observability</span>
-		</div>
+				<div class="consulting-services">
+					<span>Kubernetes</span>
+					<span>CI/CD</span>
+					<span>DevSecOps</span>
+					<span>GitOps</span>
+					<span>Cloud</span>
+					<span>Observability</span>
+				</div>
 
-		<div class="consulting-actions">
-			<a
-				class="primary-button"
-				href="mailto:jalfloresg@gmail.com"
-			>
-				Let's work together
-			</a>
+				<div class="consulting-actions">
+					<a
+						class="primary-button"
+						href="mailto:jalfloresg@gmail.com"
+					>
+						Let's work together
+					</a>
 
-			<a
-				class="secondary-button"
-				href="https://cr.linkedin.com/in/jose-flores-garcia-5741158b"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				LinkedIn
-			</a>
-		</div>
-	</div>
-</section>
-
-	  
-
-      <!-- BLOG 
-      <section>
-        <h2>Latest Articles</h2>
-
-        <p>
-          I write about Kubernetes, DevSecOps, CI/CD,
-          cloud architecture and platform engineering.
-        </p>
-
-        <a href="/blog/">Explore the blog →</a>
-      </section>
-		-->
+					<a
+						class="secondary-button"
+						href="https://cr.linkedin.com/in/jose-flores-garcia-5741158b"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						LinkedIn
+					</a>
+				</div>
+			</div>
+		</section>
     </main>
 
     <Footer />
