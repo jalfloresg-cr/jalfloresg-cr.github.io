@@ -1,0 +1,192 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'About | José Flores';
+const description =
+	'DevOps Engineer with a software development background focused on Kubernetes, cloud platforms, CI/CD and DevSecOps.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<body>
+		<Header />
+
+		<main class="about-page">
+
+			<section class="about-hero">
+				<p class="section-label">ABOUT ME</p>
+
+				<h1>
+					Software Engineer turned
+					<span> DevOps Engineer.</span>
+				</h1>
+
+				<p class="about-intro">
+					I'm a DevOps Engineer with a software development
+					background and experience building cloud-native
+					platforms, CI/CD pipelines and secure software
+					delivery workflows.
+				</p>
+			</section>
+
+			<section class="about-story">
+				<div class="story-title">
+					<p class="section-label">MY JOURNEY</p>
+					<h2>From development to platform engineering</h2>
+				</div>
+
+				<div class="story-content">
+					<p>
+						I started my career in software engineering,
+						working primarily with Java, backend services and
+						web technologies. During this stage, I worked on
+						enterprise and banking applications, integrating
+						digital platforms with different backend systems.
+					</p>
+
+					<p>
+						Over time, I became increasingly interested in
+						how applications were built, deployed and operated.
+						That led me toward CI/CD, containers, cloud
+						infrastructure and Kubernetes.
+					</p>
+
+					<p>
+						Today, my work is focused on DevOps and platform
+						engineering, designing and improving delivery
+						workflows using Kubernetes, Azure, AWS, Tekton,
+						Argo CD and infrastructure automation.
+					</p>
+
+					<p>
+						Security has also become an important part of my
+						work. I enjoy integrating DevSecOps practices such
+						as vulnerability scanning, SBOM generation,
+						container image signing, attestations and
+						Kubernetes policy enforcement directly into
+						software delivery pipelines.
+					</p>
+				</div>
+			</section>
+
+			<section class="focus-section">
+				<p class="section-label">FOCUS AREAS</p>
+				<h2>What I enjoy working on</h2>
+
+				<div class="focus-grid">
+					<article>
+						<h3>Cloud & Kubernetes</h3>
+						<p>
+							Building and operating containerized platforms
+							on Kubernetes across Azure and AWS.
+						</p>
+					</article>
+
+					<article>
+						<h3>CI/CD Automation</h3>
+						<p>
+							Designing reliable software delivery pipelines
+							and automating build, test and deployment workflows.
+						</p>
+					</article>
+
+					<article>
+						<h3>DevSecOps</h3>
+						<p>
+							Integrating security into the delivery lifecycle
+							with scanning, SBOMs, signing and policy enforcement.
+						</p>
+					</article>
+
+					<article>
+						<h3>Platform Engineering</h3>
+						<p>
+							Improving developer workflows through reusable
+							platform components, GitOps and automation.
+						</p>
+					</article>
+
+					<article>
+						<h3>Observability</h3>
+						<p>
+							Working with metrics, logs and distributed
+							telemetry to understand applications and infrastructure.
+						</p>
+					</article>
+
+					<article>
+						<h3>Software Engineering</h3>
+						<p>
+							Applying my development background to build
+							automation and understand applications beyond
+							the infrastructure layer.
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="about-details">
+				<div>
+					<span>LOCATION</span>
+					<strong>Costa Rica</strong>
+				</div>
+
+				<div>
+					<span>ROLE</span>
+					<strong>DevOps Engineer</strong>
+				</div>
+
+				<div>
+					<span>BACKGROUND</span>
+					<strong>Software Engineering</strong>
+				</div>
+
+				<div>
+					<span>LANGUAGES</span>
+					<strong>Spanish · English</strong>
+				</div>
+			</section>
+
+			<section class="about-cta">
+				<p class="section-label">LET'S CONNECT</p>
+
+				<h2>
+					Interested in cloud, Kubernetes,
+					DevOps or platform engineering?
+				</h2>
+
+				<p>
+					You can find my work and projects on GitHub
+					or connect with me on LinkedIn.
+				</p>
+
+				<div class="about-actions">
+					<a
+						class="primary-button"
+						href="https://cr.linkedin.com/in/jose-flores-garcia-5741158b"
+						target="_blank"
+					>
+						LinkedIn
+					</a>
+
+					<a
+						class="secondary-button"
+						href="https://github.com/jalfloresg-cr"
+						target="_blank"
+					>
+						GitHub
+					</a>
+				</div>
+			</section>
+
+		</main>
+
+		<Footer />
+	</body>
+</html>

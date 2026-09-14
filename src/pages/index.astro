@@ -1,0 +1,242 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Icon } from "astro-icon/components";
+
+const SITE_TITLE = 'José Ángel Flores';
+const SITE_DESCRIPTION =
+  'DevOps and DevSecOps Engineer specializing in Kubernetes, CI/CD, cloud and platform engineering.';
+
+
+const skillGroups = [
+	{
+		title: "Cloud & Platform",
+		skills: [
+			{ name: "Kubernetes", icon: "simple-icons:kubernetes" },
+			{ name: "Docker", icon: "simple-icons:docker" },
+			{ name: "Azure", icon: "simple-icons:microsoftazure" },
+			{ name: "AWS", icon: "simple-icons:amazonwebservices" },
+			{ name: "Terraform", icon: "simple-icons:terraform" },
+		],
+	},
+	{
+		title: "CI/CD ",
+		skills: [
+			{ name: "Tekton", icon: "simple-icons:tekton" },
+			{ name: "Argo CD", icon: "simple-icons:argo" },
+			{ name: "GitHub Actions", icon: "simple-icons:githubactions" },
+			{ name: "GitLab CI/CD", icon: "simple-icons:gitlab" },
+			{ name: "Bitbucket CI/CD", icon: "simple-icons:bitbucket" },
+			{ name: "Jenkins", icon: "simple-icons:jenkins" },
+		],
+	},
+	{
+		title: "Development",
+		skills: [
+			{ name: "Java", icon: "simple-icons:openjdk" },
+			{ name: "React", icon: "simple-icons:react" },
+			{ name: "Go", icon: "simple-icons:go" },
+			{ name: "Bash", icon: "simple-icons:gnubash" },
+			{ name: "Python", icon: "simple-icons:python" },
+		],
+	},
+	{
+		title: "Databases",
+		skills: [
+			{ name: "SQL", icon: "mdi:database" },
+			{ name: "Oracle", icon: "simple-icons:oracle" },
+		],
+	},
+	{
+		title: "Observability",
+		skills: [
+			{ name: "Prometheus", icon: "simple-icons:prometheus" },
+			{ name: "Grafana", icon: "simple-icons:grafana" },
+			{ name: "Loki", icon: "simple-icons:grafana" },
+			{ name: "OpenTelemetry", icon: "simple-icons:opentelemetry" },
+			{ name: "Elastic", icon: "simple-icons:elasticsearch" },
+		],
+	},
+	
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION}
+    />
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+
+      <!-- HERO -->
+      <section class="hero">
+			<p class="eyebrow">
+				DEVOPS · DEVSECOPS · PLATFORM ENGINEERING
+			</p>
+
+			<h1>José Flores Garcia</h1>
+
+			<h2>DevOps Engineer</h2>
+
+			<p class="description">
+				I build secure, scalable cloud-native platforms
+				and CI/CD pipelines using Kubernetes, Azure and AWS.
+			</p>
+			<p class="availability">
+				<span class="availability-dot"></span>
+				Open to freelance projects and consulting opportunities.
+			</p>
+			<!--
+			<div class="actions">
+				<a href="/projects/">View Projects</a>
+				<a href="/blog/">Read Blog</a>
+			</div>
+			-->
+		</section>
+
+      <!-- SKILLS -->
+     	<section class="skills-section">
+			<p class="section-label">TECH STACK</p>
+			<h2>What I work with</h2>
+
+			<div class="skill-groups">
+				{
+					skillGroups.map((group) => (
+						<div class="skill-group">
+							<h3>{group.title}</h3>
+
+							<div class="skills-grid">
+								{group.skills.map((skill) => (
+									<div class="skill-card">
+										<Icon
+											name={skill.icon}
+											width="30"
+											height="30"
+										/>
+										<span>{skill.name}</span>
+									</div>
+								))}
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+      <!-- PROJECTS -->
+      <section>
+        <h2>Latest Projects</h2>
+
+        <div class="projects">
+
+          <article>
+            <h3>Secure Software Supply Chain</h3>
+
+            <p>
+              Secure container build pipeline with vulnerability
+              scanning, SBOM generation, image signing and attestations.
+            </p>
+
+            <small>
+              Tekton · BuildKit · Trivy · Cosign · Kubernetes
+            </small>
+          </article>
+
+          <article>
+            <h3>Kubernetes GitOps Platform</h3>
+
+            <p>
+              GitOps-based Kubernetes platform with automated
+              deployments and policy enforcement.
+            </p>
+
+            <small>
+              Kubernetes · Argo CD · Kyverno · AKS
+            </small>
+          </article>
+
+          <article>
+            <h3>Cloud Infrastructure Automation</h3>
+
+            <p>
+              Infrastructure and CI/CD automation across
+              Azure and AWS environments.
+            </p>
+
+            <small>
+              Azure · AWS · Terraform · CI/CD
+            </small>
+          </article>
+
+        </div>
+      </section>
+
+	  <!-- FREELANCE & CONSULTING -->
+<section class="consulting-section">
+	<div class="consulting-content">
+		<p class="section-label">FREELANCE & CONSULTING</p>
+
+		<h2>Need help with DevOps, Kubernetes or cloud infrastructure?</h2>
+
+		<p>
+			I'm available for freelance projects and consulting engagements
+			focused on Kubernetes, CI/CD, DevSecOps, cloud infrastructure,
+			GitOps and observability.
+		</p>
+
+		<div class="consulting-services">
+			<span>Kubernetes</span>
+			<span>CI/CD</span>
+			<span>DevSecOps</span>
+			<span>GitOps</span>
+			<span>Cloud</span>
+			<span>Observability</span>
+		</div>
+
+		<div class="consulting-actions">
+			<a
+				class="primary-button"
+				href="mailto:jalfloresg@gmail.com"
+			>
+				Let's work together
+			</a>
+
+			<a
+				class="secondary-button"
+				href="https://cr.linkedin.com/in/jose-flores-garcia-5741158b"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				LinkedIn
+			</a>
+		</div>
+	</div>
+</section>
+
+	  
+
+      <!-- BLOG 
+      <section>
+        <h2>Latest Articles</h2>
+
+        <p>
+          I write about Kubernetes, DevSecOps, CI/CD,
+          cloud architecture and platform engineering.
+        </p>
+
+        <a href="/blog/">Explore the blog →</a>
+      </section>
+		-->
+    </main>
+
+    <Footer />
+  </body>
+</html>
