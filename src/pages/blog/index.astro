@@ -10,105 +10,314 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const [latestPost, ...otherPosts] = posts;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Blog | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+
 		<style>
 			main {
-				width: 960px;
+				width: min(1100px, calc(100% - 2rem));
+				margin: 0 auto;
+				padding: 4rem 0 6rem;
 			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
+
+			.blog-header {
+				margin-bottom: 3rem;
+			}
+
+			.section-label {
+				margin: 0 0 0.5rem;
+				font-size: 0.8rem;
+				font-weight: 700;
+				letter-spacing: 0.12em;
+				color: rgb(var(--accent));
+			}
+
+			.blog-header h1 {
 				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
+				font-size: clamp(2.5rem, 6vw, 4rem);
 				line-height: 1;
 			}
+
+			.blog-header p:last-child {
+				max-width: 650px;
+				margin-top: 1rem;
+				color: rgb(var(--gray));
+				font-size: 1.05rem;
+				line-height: 1.7;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.featured-post {
+				display: grid;
+				grid-template-columns: 1.1fr 1fr;
+				overflow: hidden;
+				margin-bottom: 4rem;
+				border: 1px solid rgba(var(--gray), 0.2);
+				border-radius: 18px;
+				background: rgba(var(--gray-light), 0.25);
+				transition:
+					transform 0.2s ease,
+					box-shadow 0.2s ease;
+			}
+
+			.featured-post:hover {
+				transform: translateY(-3px);
+				box-shadow: var(--box-shadow);
+			}
+
+			.featured-image {
+				min-height: 320px;
+			}
+
+			.featured-image img {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				object-fit: cover;
+				border-radius: 0;
+			}
+
+			.featured-no-image {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 320px;
+				padding: 2rem;
+				background:
+					linear-gradient(
+						135deg,
+						rgba(var(--accent), 0.15),
+						rgba(var(--gray-light), 0.4)
+					);
+			}
+
+			.featured-no-image span {
+				font-size: 4rem;
+				font-weight: 800;
+				color: rgb(var(--accent));
+			}
+
+			.featured-content {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding: 3rem;
+			}
+
+			.featured-label {
+				margin: 0 0 1rem;
+				font-size: 0.75rem;
+				font-weight: 700;
+				letter-spacing: 0.12em;
+				color: rgb(var(--accent));
+			}
+
+			.featured-content h2 {
+				margin: 0;
+				color: rgb(var(--black));
+				font-size: clamp(1.8rem, 3vw, 2.7rem);
+				line-height: 1.1;
+			}
+
+			.description {
+				margin: 1.25rem 0;
+				color: rgb(var(--gray));
+				line-height: 1.7;
+			}
+
 			.date {
 				margin: 0;
 				color: rgb(var(--gray));
+				font-size: 0.9rem;
 			}
-			ul li a:hover h4,
-			ul li a:hover .date {
+
+			.read-more {
+				margin-top: 1.5rem;
+				font-weight: 600;
 				color: rgb(var(--accent));
 			}
-			ul a:hover img {
+
+			.posts-title {
+				margin-bottom: 1.5rem;
+				font-size: 1.8rem;
+			}
+
+			.posts-grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 2rem;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			.post-card {
+				overflow: hidden;
+				border: 1px solid rgba(var(--gray), 0.2);
+				border-radius: 14px;
+				transition:
+					transform 0.2s ease,
+					box-shadow 0.2s ease;
+			}
+
+			.post-card:hover {
+				transform: translateY(-3px);
 				box-shadow: var(--box-shadow);
 			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
+
+			.post-card img {
+				width: 100%;
+				aspect-ratio: 2 / 1;
+				margin: 0;
+				object-fit: cover;
+				border-radius: 0;
+			}
+
+			.post-card-content {
+				padding: 1.5rem;
+			}
+
+			.post-card h3 {
+				margin: 0 0 0.75rem;
+				color: rgb(var(--black));
+				font-size: 1.35rem;
+				line-height: 1.25;
+			}
+
+			.post-card .description {
+				margin: 0.75rem 0 1rem;
+			}
+
+			@media (max-width: 800px) {
+				main {
+					padding-top: 2.5rem;
 				}
-				ul li {
-					width: 100%;
-					text-align: center;
+
+				.featured-post {
+					grid-template-columns: 1fr;
 				}
-				ul li:first-child {
-					margin-bottom: 0;
+
+				.featured-content {
+					padding: 2rem;
 				}
-				ul li:first-child .title {
-					font-size: 1.563em;
+
+				.featured-image,
+				.featured-no-image {
+					min-height: 220px;
+				}
+
+				.posts-grid {
+					grid-template-columns: 1fr;
 				}
 			}
 		</style>
 	</head>
+
 	<body>
 		<Header />
+
 		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
+			<header class="blog-header">
+				<p class="section-label">BLOG</p>
+				<h1>Notes from the field.</h1>
+
+				<p>
+					Practical articles about DevOps, DevSecOps,
+					cloud-native platforms, automation, and software delivery.
+				</p>
+			</header>
+
+			{
+				latestPost && (
+					<a
+						class="featured-post"
+						href={`/blog/${latestPost.id}/`}
+					>
+						{latestPost.data.heroImage ? (
+							<div class="featured-image">
+								<Image
+									width={720}
+									height={480}
+									src={latestPost.data.heroImage}
+									alt={latestPost.data.title}
+								/>
+							</div>
+						) : (
+							<div class="featured-no-image">
+								<span>01</span>
+							</div>
+						)}
+
+						<div class="featured-content">
+							<p class="featured-label">
+								LATEST ARTICLE
+							</p>
+
+							<h2>{latestPost.data.title}</h2>
+
+							<p class="description">
+								{latestPost.data.description}
+							</p>
+
+							<p class="date">
+								<FormattedDate date={latestPost.data.pubDate} />
+							</p>
+
+							<span class="read-more">
+								Read article →
+							</span>
+						</div>
+					</a>
+				)
+			}
+
+			{
+				otherPosts.length > 0 && (
+					<section>
+						<h2 class="posts-title">More articles</h2>
+
+						<ul class="posts-grid">
+							{otherPosts.map((post) => (
+								<li class="post-card">
+									<a href={`/blog/${post.id}/`}>
+										{post.data.heroImage && (
+											<Image
+												width={720}
+												height={360}
+												src={post.data.heroImage}
+												alt={post.data.title}
+											/>
+										)}
+
+										<div class="post-card-content">
+											<h3>{post.data.title}</h3>
+
+											<p class="description">
+												{post.data.description}
+											</p>
+
+											<p class="date">
+												<FormattedDate date={post.data.pubDate} />
+											</p>
+										</div>
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				)
+			}
 		</main>
+
 		<Footer />
 	</body>
 </html>
