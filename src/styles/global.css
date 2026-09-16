@@ -30,10 +30,11 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0 1rem;
+	box-sizing: border-box;
 }
 h1,
 h2,
@@ -120,6 +121,92 @@ hr {
 	main {
 		padding: 1em;
 	}
+}
+
+article,
+.prose {
+	width: 100%;
+	max-width: 760px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.prose {
+	font-size: 1rem;
+	line-height: 1.75;
+	overflow-wrap: break-word;
+}
+
+.prose p,
+.prose li {
+	max-width: 100%;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+	max-width: 100%;
+	word-break: normal;
+	overflow-wrap: normal;
+	hyphens: none;
+}
+
+.prose h1 {
+	font-size: clamp(2rem, 7vw, 3.5rem);
+	line-height: 1.1;
+}
+
+.prose h2 {
+	font-size: clamp(1.6rem, 5vw, 2.3rem);
+	line-height: 1.2;
+}
+
+.prose h3 {
+	font-size: clamp(1.3rem, 4vw, 1.8rem);
+	line-height: 1.25;
+}
+
+.prose pre {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: auto;
+	box-sizing: border-box;
+
+	padding: 1rem;
+	border-radius: 10px;
+
+	font-size: 0.9rem;
+	line-height: 1.5;
+
+	-webkit-overflow-scrolling: touch;
+}
+
+.prose pre code {
+	display: block;
+	width: max-content;
+	min-width: 100%;
+
+	white-space: pre;
+	word-break: normal;
+	overflow-wrap: normal;
+}
+
+.prose :not(pre) > code {
+	padding: 0.15rem 0.35rem;
+	border-radius: 4px;
+
+	font-size: 0.9em;
+
+	overflow-wrap: anywhere;
+}
+
+.prose img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	margin: 2rem auto;
 }
 
 .sr-only {

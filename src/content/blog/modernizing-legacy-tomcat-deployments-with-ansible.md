@@ -127,11 +127,11 @@ Configuration Repository               |
 
 There are three repositories:
 
-```text
-legacy-tomcat-demo-app
-legacy-tomcat-demo-config
-legacy-tomcat-automation-lab
-```
+[github.com/jalfloresg-cr/legacy-tomcat-demo-app](https://github.com/jalfloresg-cr/legacy-tomcat-demo-app)
+
+[github.com/jalfloresg-cr/legacy-tomcat-demo-config](https://github.com/jalfloresg-cr/legacy-tomcat-demo-config)
+
+[github.com/jalfloresg-cr/legacy-tomcat-automation-lab](https://github.com/jalfloresg-cr/legacy-tomcat-automation-lab)
 
 Each one has a different responsibility.
 
